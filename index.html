@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Work From Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #00ff88;
+    --green-dark: #00b86b;
+    --green-light: #7dffbd;
+    --gold: #ffd166;
+    --dark: #020712;
+    --card1: rgba(5, 25, 16, 0.98);
+    --card2: rgba(3, 10, 7, 0.99);
+    --border: rgba(0, 255, 136, 0.28);
+    --white: #ffffff;
+}
+
+html,
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    color: var(--white);
+
+    background:
+        radial-gradient(
+            ellipse 100% 80% at 50% 50%,
+            rgba(0, 255, 136, 0.14),
+            transparent 70%
+        ),
+        #020712;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.card {
+    width: 100%;
+    max-width: 390px;
+    padding: 25px 22px 22px;
+
+    background:
+        linear-gradient(
+            150deg,
+            var(--card1),
+            var(--card2)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.85),
+        0 0 45px rgba(0, 255, 136, 0.10);
+
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.left-col {
+    text-align: center;
+}
+
+.agency {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: var(--green-light);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.top-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 18px;
+
+    border-radius: 15px;
+
+    background: rgba(0, 255, 136, 0.08);
+    border: 1px solid rgba(0, 255, 136, 0.30);
+
+    color: var(--green-light);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.avatar-wrap {
+    position: relative;
+
+    width: 125px;
+    height: 125px;
+
+    margin: 0 auto 18px;
+}
+
+.avatar-ring {
+    position: absolute;
+    inset: -5px;
+
+    border-radius: 50%;
+
+    background: conic-gradient(
+        #7dffbd,
+        #00ff88,
+        #ffd166,
+        #00b86b,
+        #7dffbd
+    );
+
+    animation: spin 5s linear infinite;
+
+    box-shadow:
+        0 0 25px rgba(0, 255, 136, 0.40);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.name {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 800;
+
+    color: #ffffff;
+
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+
+    text-shadow:
+        0 0 15px rgba(0, 255, 136, 0.25);
+}
+
+.trusted {
+    color: var(--green);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+
+    margin-bottom: 16px;
+}
+
+/* Trading Chart */
+
+.chart {
+    height: 45px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-bottom: 20px;
+}
+
+.candle {
+    width: 8px;
+
+    border-radius: 2px;
+
+    position: relative;
+
+    animation: candleMove 1.5s ease-in-out infinite;
+}
+
+.candle::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: -6px;
+
+    width: 2px;
+    height: 6px;
+
+    transform: translateX(-50%);
+
+    background: inherit;
+}
+
+.candle:nth-child(1) {
+    height: 15px;
+    background: #ef4444;
+}
+
+.candle:nth-child(2) {
+    height: 25px;
+    background: #22c55e;
+    animation-delay: 0.15s;
+}
+
+.candle:nth-child(3) {
+    height: 20px;
+    background: #00ff88;
+    animation-delay: 0.3s;
+}
+
+.candle:nth-child(4) {
+    height: 32px;
+    background: #ffd166;
+    animation-delay: 0.45s;
+}
+
+.candle:nth-child(5) {
+    height: 28px;
+    background: #00ff88;
+    animation-delay: 0.6s;
+}
+
+.candle:nth-child(6) {
+    height: 40px;
+    background: #7dffbd;
+    animation-delay: 0.75s;
+}
+
+.candle:nth-child(7) {
+    height: 35px;
+    background: #22c55e;
+    animation-delay: 0.9s;
+}
+
+@keyframes candleMove {
+    0%, 100% {
+        transform: scaleY(0.85);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scaleY(1.08);
+        opacity: 1;
+    }
+}
+
+.right-col {
+    width: 100%;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+
+    gap: 6px;
+    flex-wrap: wrap;
+
+    margin-bottom: 17px;
+}
+
+.feat {
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.feat-gold {
+    color: #ffe7a3;
+
+    background: rgba(255, 209, 102, 0.08);
+
+    border: 1px solid rgba(255, 209, 102, 0.28);
+}
+
+.feat-green {
+    color: var(--green-light);
+
+    background: rgba(0, 255, 136, 0.08);
+
+    border: 1px solid rgba(0, 255, 136, 0.28);
+}
+
+.feat-red {
+    color: #fca5a5;
+
+    background: rgba(239, 68, 68, 0.08);
+
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.countdown-row {
+    text-align: center;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+.countdown-row .num {
+    color: var(--green);
+
+    font-size: 22px;
+    font-weight: 800;
+
+    text-shadow:
+        0 0 12px rgba(0, 255, 136, 0.5);
+}
+
+.cta-btn {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: 0;
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00ff88,
+            #00b86b,
+            #008f55
+        );
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    box-shadow:
+        0 5px 22px rgba(0, 255, 136, 0.30);
+
+    animation:
+        buttonPulse 2.2s ease-in-out infinite;
+
+    transition: 0.2s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 255, 136, 0.50);
+}
+
+.cta-btn:active {
+    transform: scale(0.97);
+}
+
+.cta-btn::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 55%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    animation: shimmer 2.8s infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow:
+            0 5px 20px rgba(0, 255, 136, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 7px 30px rgba(0, 255, 136, 0.48);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    60% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+}
+
+.telegram-icon {
+    width: 19px;
+    height: 19px;
+}
+
+.join-text {
+    text-align: center;
+
+    margin-top: 11px;
+    margin-bottom: 15px;
+
+    color: rgba(255,255,255,0.35);
+
+    font-size: 10.5px;
+}
+
+.join-text span {
+    color: var(--green-light);
+    font-weight: 800;
+}
+
+.agency-bottom {
+    text-align: center;
+
+    margin-top: 13px;
+    margin-bottom: 13px;
+
+    color: rgba(255,255,255,0.45);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.agency-bottom span {
+    color: var(--green);
+    font-weight: 800;
+}
+
+.divider {
+    border: 0;
+
+    border-top:
+        1px dashed rgba(0, 255, 136, 0.18);
+
+    margin-bottom: 12px;
+}
+
+.disclaimer {
+    color: rgba(255,255,255,0.32);
+
+    text-align: center;
+
+    font-size: 9.5px;
+    line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+
+    .card {
+        max-width: 820px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 50px;
+
+        padding: 48px 55px;
+
+        border-radius: 32px;
+    }
+
+    .left-col {
+        flex: 0 0 285px;
+
+        padding-right: 50px;
+
+        border-right:
+            1px solid rgba(0, 255, 136, 0.12);
+    }
+
+    .right-col {
+        flex: 1;
+    }
+
+    .avatar-wrap {
+        width: 140px;
+        height: 140px;
+    }
+
+    .name {
+        font-size: 28px;
+    }
+
+    .features {
+        justify-content: flex-start;
+    }
+
+    .countdown-row {
+        text-align: left;
+    }
+
+    .join-text {
+        text-align: left;
+    }
+
+    .agency-bottom {
+        text-align: left;
+    }
+
+    .disclaimer {
+        text-align: left;
+        font-size: 10px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="left-col">
+
+        <div class="agency">
+            WORK FROM HOME
+        </div>
+
+        <div class="top-badge">
+            📈 WORK FROM HOME
+        </div>
+
+        <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+        </div>
+
+        <div class="name">
+            WORK FROM HOME
+        </div>
+
+        <div class="trusted">
+            🇮🇳 TRADING COMMUNITY
+        </div>
+
+        <div class="chart">
+
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+
+        </div>
+
+    </div>
+
+    <div class="right-col">
+
+        <div class="features">
+
+            <span class="feat feat-gold">
+                ⭐ PREMIUM GROUP
+            </span>
+
+            <span class="feat feat-green">
+                📲 TELEGRAM
+            </span>
+
+            <span class="feat feat-red">
+                🚀 JOIN FREE
+            </span>
+
+        </div>
+
+        <div class="countdown-row">
+
+            🚀 REDIRECTING TO TELEGRAM IN
+
+            <span class="num" id="timer">40</span>s
+
+        </div>
+
+        <button
+            class="cta-btn"
+            id="leadBtn"
+            type="button"
+        >
+
+            <svg
+                class="telegram-icon"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+            >
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.04 9.61c-.153.676-.557.84-1.13.522l-3.1-2.284-1.496 1.44c-.165.165-.304.304-.624.304l.223-3.164 5.76-5.2c.25-.223-.054-.347-.388-.124L7.08 14.608l-3.06-.955c-.665-.208-.68-.665.138-.984l11.94-4.604c.554-.2 1.038.136.464.183z"/>
+            </svg>
+
+            JOIN TELEGRAM FREE
+
+        </button>
+
+        <div class="join-text">
+
+            📢 Join
+            <span>WORK FROM HOME</span>
+
+        </div>
+
+        <div class="agency-bottom">
+
+            WORK FROM
+            <span>HOME</span>
+
+        </div>
+
+        <hr class="divider">
+
+        <div class="disclaimer">
+
+            Trading information is provided for
+            informational and educational purposes only.
+            Please trade responsibly and understand the risks.
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const telegramURL = "https://t.me/+SZZtAzG3lpg1YmE9";
+
+let countdown = 40;
+
+const timer = document.getElementById("timer");
+const ctaButton = document.getElementById("leadBtn");
+
+function visitTelegram() {
+    window.location.href = telegramURL;
+}
+
+if (ctaButton) {
+    ctaButton.addEventListener("click", visitTelegram);
+}
+
+const countdownInterval = setInterval(function () {
+
+    countdown--;
+
+    if (timer) {
+        timer.textContent = countdown;
+    }
+
+    if (countdown <= 0) {
+
+        clearInterval(countdownInterval);
+
+        window.location.href = telegramURL;
+
+    }
+
+}, 1000);
+
+</script>
+
+</body>
+</html>
